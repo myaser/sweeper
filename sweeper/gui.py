@@ -91,7 +91,7 @@ class App():
             else:
                 return True
 
-        pos = tuple(int(v) for v in re.findall("[0-9]+[.][0-9]+|[0-9]+", self.txt.get()))
+        pos = tuple(float(v) for v in re.findall("[0-9]+[.][0-9]+|[0-9]+", self.txt.get()))
 
         if is_valid(pos):
             self.robot.set_position(pos)
