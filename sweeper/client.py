@@ -15,14 +15,20 @@ class Client(Thread):
         self.gui.robot.set_position((x, y, theta))
 
     def mark_current_block_as_buried_mine_block(self):
-        pos = self.gui.robot.metal_detector_position
-        blk = self.gui.playground.get_block(pos)
-        blk.put_buried_mine()
+        try:
+            pos = self.gui.robot.metal_detector_position
+            blk = self.gui.playground.get_block(pos)
+            blk.put_buried_mine()
+        except ValueError:
+            pass
 
     def mark_current_block_as_surface_mine_block(self):
-        pos = self.gui.robot.metal_detector_position
-        blk = self.gui.playground.get_block(pos)
-        blk.put_serface_mine()
+        try:
+            pos = self.gui.robot.metal_detector_position
+            blk = self.gui.playground.get_block(pos)
+            blk.put_serface_mine()
+        except ValueError:
+            pass
 
     def redraw_gui(self):
         self.gui.draw()
