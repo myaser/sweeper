@@ -15,7 +15,6 @@ a `Tkinter` based interface designed to be integrated with any software/hardware
 ## usage ##
 here is a snippet 
 
-
 ```python
 
 from sweeper.gui import App
@@ -36,3 +35,12 @@ app = App(my_robot, delta_playground)
 MyClient(app)
 app.start()
 ```
+
+inside `set_up`, `process` you should do calls to:
+* `Client.move_robot_to((x, y, theta))`
+* `Client.mark_current_block_as_buried_mine_block()`
+* `Client.mark_current_block_as_surface_mine_block()`
+* `Client.redraw_gui()`
+
+`set_up` runs once. and it is the place to put your initialization 
+`process` is runs repeatedly untill the program be paused or stopped. put your worker logic here

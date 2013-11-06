@@ -43,4 +43,3 @@ class Client(Thread):
             if self.stop_flag.is_set():
                 break
             self.process()
-            self.redraw_gui()
